@@ -61,30 +61,9 @@ public class FoodDB extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, cv);
 
         cv = new ContentValues();
-        cv.put(COL_IMAGE,"pork.jpg");
-        cv.put(COL_TITLE, "Pork");
-        cv.put(COL_PRICE, "39");
-        cv.put(COL_AMOUNT, "50");
-        db.insert(TABLE_NAME, null, cv);
-
-        cv = new ContentValues();
-        cv.put(COL_IMAGE,"meat.jpg");
-        cv.put(COL_TITLE, "Meat");
-        cv.put(COL_PRICE, "49");
-        cv.put(COL_AMOUNT, "40");
-        db.insert(TABLE_NAME, null, cv);
-
-        cv = new ContentValues();
         cv.put(COL_IMAGE,"big_vegetable.jpg");
         cv.put(COL_TITLE, "Vegeatable Set");
         cv.put(COL_PRICE, "89");
-        cv.put(COL_AMOUNT, "50");
-        db.insert(TABLE_NAME, null, cv);
-
-        cv = new ContentValues();
-        cv.put(COL_IMAGE,"vegetable.jpg");
-        cv.put(COL_TITLE, "Vegetable");
-        cv.put(COL_PRICE, "49");
         cv.put(COL_AMOUNT, "50");
         db.insert(TABLE_NAME, null, cv);
 
@@ -107,13 +86,6 @@ public class FoodDB extends SQLiteOpenHelper {
         cv.put(COL_TITLE, "Pepsi");
         cv.put(COL_PRICE, "30");
         cv.put(COL_AMOUNT, "50");
-        db.insert(TABLE_NAME, null, cv);
-
-        cv = new ContentValues();
-        cv.put(COL_IMAGE,"pepsi_glass.jpg");
-        cv.put(COL_TITLE, "Pepsi Glass");
-        cv.put(COL_PRICE, "15");
-        cv.put(COL_AMOUNT, "40");
         db.insert(TABLE_NAME, null, cv);
 
         cv = new ContentValues();

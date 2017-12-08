@@ -1,6 +1,7 @@
 package com.example.shabuorder.adapter;
 import com.example.shabuorder.R;
 
+import com.example.shabuorder.db.FoodDB;
 import com.example.shabuorder.model.Foods;
 
 import android.content.ContentValues;
@@ -58,10 +59,14 @@ public class FoodsAdapter extends ArrayAdapter<Foods> {
         final TextView FoodPriceTextView = itemLayout.findViewById(R.id.text_price);
         final TextView FoodAmountTextView = itemLayout.findViewById(R.id.text_amount);
 
-        FoodImageImageView.setImageDrawable(Drawable.createFromPath(item.foodsImage));
+
         FoodTitleTextView.setText(item.foodsName);
         FoodPriceTextView.setText(item.foodsPrice);
         FoodAmountTextView.setText("0");
+
+
+
+
 
         Button bUP = itemLayout.findViewById(R.id.button_up);
         Button bDOWN = itemLayout.findViewById(R.id.button_down);
@@ -84,16 +89,16 @@ public class FoodsAdapter extends ArrayAdapter<Foods> {
         });
 
 
-       /* AssetManager am = mContext.getAssets();
+        String pictureFileName = item.foodsImage;
+        AssetManager am = mContext.getAssets();
         try {
             InputStream stream = am.open(pictureFileName);
             Drawable drawable = Drawable.createFromStream(stream, null);
-            phoneImageView.setImageDrawable(drawable);
+            FoodImageImageView.setImageDrawable(drawable);
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-
+        }
         return itemLayout;
     }
 

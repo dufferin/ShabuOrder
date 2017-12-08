@@ -61,18 +61,19 @@ public class MainActivity extends AppCompatActivity {
                 int sum = 0;
                 int status = 1;
 
-                for (int i = 0 ; i<mFoodItemList.size();i++) {
-                    TextView im = (TextView) lv.getChildAt(i).findViewById(R.id.image_food);
+
+                for(int i = 0 ; i< 8; i++) {
+
                     TextView a = (TextView) lv.getChildAt(i).findViewById(R.id.text_amount);
                     TextView p = (TextView) lv.getChildAt(i).findViewById(R.id.text_price);
                     TextView n = (TextView) lv.getChildAt(i).findViewById(R.id.text_name);
-                    int x =  Integer.parseInt(a.getText().toString());
+                    int x = Integer.parseInt(a.getText().toString());
                     int y = Integer.parseInt(mAdapter.getItem(i).foodsAmount);
 
-                    if(x>y) {
+                    if (x > y) {
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setMessage(n.getText().toString()+" มีเพียง"+ y + "เท่านั้น")
+                        builder.setMessage(n.getText().toString() + " มีเพียง" + y + "เท่านั้น")
                                 .setCancelable(false)
                                 .setNegativeButton("OK น๊ะค๊ะ", new DialogInterface.OnClickListener() {
                                     @Override
@@ -82,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
                                 });
                         AlertDialog alert = builder.create();
                         alert.show();
-                        status = 0 ;
+                        status = 0;
 
-                    }else {
+                    } else {
                         int price = Integer.parseInt(p.getText().toString());
                         int amount = Integer.parseInt(a.getText().toString());
 
@@ -92,13 +93,33 @@ public class MainActivity extends AppCompatActivity {
                         total += sum;
 
                     }
-
                 }
+
                 if (status == 1){
-                    String text = String.valueOf(total);
-                    Intent intent = new Intent(MainActivity.this, CheckBillActivity.class);
-                    intent.putExtra("total_value", text);
-                    startActivity(intent);
+                   final String text = String.valueOf(total);
+
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("Are you sure to check bill ?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(MainActivity.this, CheckBillActivity.class);
+                                    intent.putExtra("total_value", text);
+
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int i) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
                 }
 
 
@@ -107,30 +128,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-              /* AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("Are you sure to check bill ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(),CheckBillActivity.class);
-                                startActivity(intent);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int i) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();
-*/
 
 
             }
         });
-
 
 
     }
@@ -162,18 +163,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private View getViewByPosition(int pos, ListView listView) {
-        final int firstListItemPosition = listView.getFirstVisiblePosition();
-        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
 
-        if (pos < firstListItemPosition || pos > lastListItemPosition ) {
-            return listView.getAdapter().getView(pos, null, listView);
-        } else {
-            final int childIndex = pos - firstListItemPosition;
-            return listView.getChildAt(childIndex);
-        }
     }
 
 
 
-}
+
