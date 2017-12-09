@@ -1,60 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/image_food"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:scaleType="fitXY"
-        app:srcCompat="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:id="@+id/text_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/text_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:text="TextView" />
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/button_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="+" />
-
-    <TextView
-        android:id="@+id/text_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_alignTop="@+id/phone_image_view_1"
-        android:text="TextView" />
+        android:layout_alignBaseline="@+id/text_price"
+        android:layout_alignBottom="@+id/text_price"
+        android:layout_toLeftOf="@+id/text_amount"
+        android:layout_toStartOf="@+id/text_amount"
+        android:text="+"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/button_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="-" />
-</LinearLayout>
+
+        android:layout_alignBottom="@+id/button_up"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="-"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_food"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/image_food"
+        android:layout_toRightOf="@+id/image_food"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <TextView
+        android:id="@+id/text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/text_name"
+        android:layout_alignBottom="@+id/text_name"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/text_name"
+        android:layout_toRightOf="@+id/text_name"
+        android:text="TextView"
+
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/button_up"
+        android:layout_alignBottom="@+id/button_up"
+        android:layout_toLeftOf="@+id/button_down"
+        android:layout_toStartOf="@+id/button_down"
+        android:text="TextView"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="27dp" />
+</RelativeLayout>
