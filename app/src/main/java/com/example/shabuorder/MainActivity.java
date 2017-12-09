@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         builder.setMessage(n.getText().toString() + " มีเพียง" + y + "เท่านั้น")
                                 .setCancelable(false)
-                                .setNegativeButton("OK น๊ะค๊ะ", new DialogInterface.OnClickListener() {
+                                .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {
                                         dialog.cancel();
